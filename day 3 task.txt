@@ -1,0 +1,41 @@
+1.To compare two JSON Have the same properties without order
+
+const obj1={age:45,name:"pugazh"}
+const obj2={name:"pugazh",age:45}
+let a=Object.keys(obj1)
+let b=Object.keys(obj2)
+let flag=true;
+if(a.length==a.length)
+{
+for(let key in obj1)
+{
+ if(obj1[key]!=obj2[key])
+ {
+  flag=false;
+ }
+
+}
+}
+else
+{
+ flag=false;
+}
+if(flag)
+ console.log("Objects are same")
+else
+ console.log("Objects are not same")
+
+2.using URL To display all the  country flags
+
+const URL="https://restcountries.com/v3.1/all";
+const myReq=new XMLHttpRequest();
+myReq.addEventListener("load", function () {
+    const obj=JSON.parse(this.responseText)
+    for(let val of obj){
+    console.log(val.flags.svg)
+}
+});
+    
+myReq.open("GET","https://restcountries.com/v3.1/all");
+myReq.mode='no-cors';
+myReq.send()
